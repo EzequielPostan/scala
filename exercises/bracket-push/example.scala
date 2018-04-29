@@ -1,6 +1,6 @@
 import scala.util.parsing.combinator.RegexParsers
 
-object BracketPush extends RegexParsers {
+object BracketPushExample extends RegexParsers {
   lazy val t = "[^\\[\\]\\(\\)\\{\\}]+".r
 
   private def paren: Parser[String] =
