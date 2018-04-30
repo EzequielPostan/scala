@@ -1,11 +1,15 @@
 class Accumulate {
 
-  // The example solution provided is not optiomal as it is not tail recursive
+  // The example solution provided is not optimal as it is not tail recursive
   // Direct tail recursive solution would need to append elements at the end
   // of the list, leading to bad performance.
 
-  // I decided to follow an implentation using Builder
-  def accumulate[A, B](f: (A) => B, list : List[A]): List[B] = {
+  // A simple foldRight solution
+  def accumulate[A, B](f: (A) => B, list : List[A]): List[B] =
+    (list foldRight List[B]()) { case (a,acc) => f(a) :: acc }
+
+  // An implementation using Builder
+  def accumulateBuilder[A, B](f: (A) => B, list : List[A]): List[B] = {
     val builder = List.newBuilder[B]
     for(x <- list) builder += f(x)
     builder.result
@@ -15,7 +19,7 @@ class Accumulate {
   // An alternative idea could be to apply Calley representation of lists
   // (sometime called difflists or hughes lists). This leads to represent
   // lists as functions to delay concatenation [1].
-  // I didn't use this solution, because I imagine that the one above may be more
+  // I didn't use this solution, because I imagine that the ones above may be more
   // efficient.
   type CayleyList[C] = List[C] => List[C]
   def embed[C](x: C): CayleyList[C] = (ys: List[C]) => List(x) ++ ys
