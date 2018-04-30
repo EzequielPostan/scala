@@ -6,14 +6,9 @@ object SpiralMatrix {
 
     @scala.annotation.tailrec
     def spiralTailRec(offset: Int, row: Int, col: Int, size: Int): Unit = {
-      if(size == 0) initialMatrix
+      if(size == 0) () // Do nothing
       else if(size == 1) initialMatrix(row)(col) =  offset + 1
-      else if(size == 2) {
-        initialMatrix(row)(col) = offset + 1
-        initialMatrix(row)(col + 1) = offset + 2
-        initialMatrix(row + 1)(col + 1) = offset + 3
-        initialMatrix(row + 1)(col) = offset + 4
-      } else {
+      else {
         // Fill first row
         for(j <- 0 until size) initialMatrix(row)(col + j) = offset + (j + 1)
         // Fill last column
