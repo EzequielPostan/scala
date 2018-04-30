@@ -1,4 +1,4 @@
-object SpiralMatrix {
+object SpiralMatrixExample {
 
   type Matrix = Seq[Seq[Int]]
   type Point = (Int, Int)
