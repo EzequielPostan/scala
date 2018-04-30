@@ -1,14 +1,14 @@
-object Zipper {
+object ZipperExample {
   // implementation translated from http://learnyouahaskell.com/zippers
   type Breadcrumbs[A] = List[Crumb[A]]
   // A zipper for a binary tree.
-  type Zipper[A] = (BinTree[A], Breadcrumbs[A])
+  type Zipper[A] = (FakeBinTree[A], Breadcrumbs[A])
 
   // Get a zipper focussed on the root node.
-  def fromTree[A](bt: BinTree[A]): Zipper[A] = (bt, Nil)
+  def fromTree[A](bt: FakeBinTree[A]): Zipper[A] = (bt, Nil)
 
   // Get the complete tree from a zipper.
-  def toTree[A](zipper: Zipper[A]): BinTree[A] = zipper match {
+  def toTree[A](zipper: Zipper[A]): FakeBinTree[A] = zipper match {
     case (bt, Nil) => bt
     case _ => toTree(up(zipper).get)
   }
@@ -18,20 +18,20 @@ object Zipper {
 
   // Get the left child of the focus node, if any.
   def left[A](zipper: Zipper[A]): Option[Zipper[A]] = zipper match {
-    case (BinTree(x, Some(l), r), bs) => Some((l, LeftCrumb(x, r)::bs))
+    case (FakeBinTree(x, Some(l), r), bs) => Some((l, LeftCrumb(x, r)::bs))
     case _ => None
   }
 
   // Get the right child of the focus node, if any.
   def right[A](zipper: Zipper[A]): Option[Zipper[A]] = zipper match {
-    case (BinTree(x, l, Some(r)), bs) => Some((r, RightCrumb(x, l)::bs))
+    case (FakeBinTree(x, l, Some(r)), bs) => Some((r, RightCrumb(x, l)::bs))
     case _ => None
   }
 
   // Get the parent of the focus node, if any.
   def up[A](zipper: Zipper[A]): Option[Zipper[A]] = zipper match {
-    case (t, LeftCrumb(x, r)::bs) => Some((BinTree(x, Some(t), r), bs))
-    case (t, RightCrumb(x, l)::bs) => Some((BinTree(x, l, Some(t)), bs))
+    case (t, LeftCrumb(x, r)::bs) => Some((FakeBinTree(x, Some(t), r), bs))
+    case (t, RightCrumb(x, l)::bs) => Some((FakeBinTree(x, l, Some(t)), bs))
     case _ => throw new Exception("up: called on topmost focus")
   }
 
@@ -42,21 +42,21 @@ object Zipper {
   }
 
   // Replace a left child tree.
-  def setLeft[A](l: Option[BinTree[A]], zipper: Zipper[A]): Zipper[A] = {
+  def setLeft[A](l: Option[FakeBinTree[A]], zipper: Zipper[A]): Zipper[A] = {
     val (bt, bs) = zipper
     (bt.copy(left = l), bs)
   }
 
   // Replace a right child tree.
-  def setRight[A](r: Option[BinTree[A]], zipper: Zipper[A]): Zipper[A] = {
+  def setRight[A](r: Option[FakeBinTree[A]], zipper: Zipper[A]): Zipper[A] = {
     val (bt, bs) = zipper
     (bt.copy(right = r), bs)
   }
 }
 
 // A binary tree.
-case class BinTree[A](value: A, left: Option[BinTree[A]], right: Option[BinTree[A]])
+case class FakeBinTree[A](value: A, left: Option[FakeBinTree[A]], right: Option[FakeBinTree[A]])
 
 trait Crumb[A]
-case class LeftCrumb[A](value: A, tree: Option[BinTree[A]]) extends Crumb[A]
-case class RightCrumb[A](value: A, tree: Option[BinTree[A]]) extends Crumb[A]
+case class LeftCrumb[A](value: A, tree: Option[FakeBinTree[A]]) extends Crumb[A]
+case class RightCrumb[A](value: A, tree: Option[FakeBinTree[A]]) extends Crumb[A]
