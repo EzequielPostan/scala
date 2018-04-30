@@ -2,7 +2,7 @@ import scala.concurrent._
 import scala.concurrent.duration.Duration
 import ExecutionContext.Implicits.global
 
-object Frequency {
+object FrequencyExample {
   // get the char counts for one String
   private def countChars(text: String): Map[Char, Int] =
     text.filter(_.isLetter).groupBy(_.toLower).map{case (c, s) => (c, s.length)}
