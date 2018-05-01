@@ -1,4 +1,4 @@
-object Change {
+object ChangeExample {
   type Coin = Int
   type Coins = List[Coin]
   type Amount = Int
