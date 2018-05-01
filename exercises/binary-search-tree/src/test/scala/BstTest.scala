@@ -5,40 +5,40 @@ class BstTest extends FlatSpec with Matchers {
   val bst4 = Bst(4)
 
   it should "retain data" in {
-    bst4.value should equal(4)
+    bst4.value.get should equal(4)
   }
 
   it should "retain data - char" in {
-    Bst('d').value should equal('d')
+    Bst('d').value.get should equal('d')
   }
 
   it should "insert less" in {
-    bst4.insert(2).left.value should equal(2)
+    bst4.insert(2).left.get.value.get should equal(2)
   }
 
   it should "insert less - char" in {
-    Bst('d').insert('a').left.value should equal('a')
+    Bst('d').insert('a').left.get.value.get should equal('a')
   }
 
   it should "insert same" in {
-    bst4.insert(4).left.value should equal(4)
+    bst4.insert(4).left.get.value.get should equal(4)
   }
 
   it should "insert greater than" in {
-    bst4.insert(5).right.value should equal(5)
+    bst4.insert(5).right.get.value.get should equal(5)
   }
 
   it should "handle complex tree - sort out of order list" in {
     val bst = Bst.fromList(List(4, 2, 6, 1, 3, 7, 5))
     Bst.toList(bst) should equal((1 to 7).toList)
 
-    bst.value should equal(4)
-    bst.left.value should equal(2)
-    bst.left.left.value should equal(1)
-    bst.left.right.value should equal(3)
-    bst.right.value should equal(6)
-    bst.right.left.value should equal(5)
-    bst.right.right.value should equal(7)
+    bst.value.get should equal(4)
+    bst.left.get.value.get should equal(2)
+    bst.left.get.left.get.value.get should equal(1)
+    bst.left.get.right.get.value.get should equal(3)
+    bst.right.get.value.get should equal(6)
+    bst.right.get.left.get.value.get should equal(5)
+    bst.right.get.right.get.value.get should equal(7)
   }
 
   it should "iterating one element" in {
