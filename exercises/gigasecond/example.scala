@@ -2,7 +2,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 
-object Gigasecond {
+object GigasecondExample {
   private type Seconds = Long
 
   def add(startDate: LocalDate): LocalDateTime = {
