@@ -1,6 +1,6 @@
 import scala.collection.immutable.SortedMap
 
-class School {
+class SchoolExample {
   type DB = Map[Int, Seq[String]]
 
   private var _db: DB = Map.empty
