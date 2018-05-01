@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object Grains {
+object GrainsExample {
   type Grains = BigInt
   type ChessboardSquare = Int
 
