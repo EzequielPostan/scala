@@ -1,4 +1,4 @@
-object PythagoreanTriplet {
+object PythagoreanTripletExample {
   private def sqr(x: Int) = x * x
 
   private def sort(triplet: (Int, Int, Int)): (Int, Int, Int) =
