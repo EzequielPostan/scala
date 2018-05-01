@@ -1,4 +1,4 @@
-class Hamming(strand1: String, strand2: String) {
+class HammingExample(strand1: String, strand2: String) {
 
   def distance =
     if (strand1.length == strand2.length) {
@@ -9,7 +9,7 @@ class Hamming(strand1: String, strand2: String) {
   private def commonPairs = strand1.zip(strand2)
 }
 
-object Hamming {
+object HammingExample {
   def distance(strand1: String, strand2: String) =
-    new Hamming(strand1, strand2).distance
+    new HammingExample(strand1, strand2).distance
 }
