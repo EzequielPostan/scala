@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object Strain {
+object StrainExample {
   def keep[A](seq: Seq[A], func: A => Boolean): Seq[A] =
     recurse(seq, func, List()).reverse
 
