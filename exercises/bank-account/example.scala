@@ -1,4 +1,4 @@
-trait BankAccount {
+trait BankAccountExample {
 
   def closeAccount(): Unit
 
@@ -7,7 +7,7 @@ trait BankAccount {
   def incrementBalance(increment: Int): Option[Int]
 }
 
-protected case class Account(var balance: Option[Int] = Some(0)) extends BankAccount {
+protected case class AccountExample(var balance: Option[Int] = Some(0)) extends BankAccountExample {
 
   private def runThreadSafe[A](block: => A): A = this.synchronized(block)
 
@@ -23,6 +23,6 @@ protected case class Account(var balance: Option[Int] = Some(0)) extends BankAcc
   }
 }
 
-object Bank {
-  def openAccount(): BankAccount = Account()
+object BankExample {
+  def openAccount(): BankAccountExample = AccountExample()
 }
