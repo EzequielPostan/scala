@@ -1,6 +1,6 @@
-import DNA._
+import DNAExample._
 
-class DNA(dna: String) {
+class DNAExample(dna: String) {
 
   def count(char: Char): OrError[Int] =
     for {
@@ -25,7 +25,7 @@ class DNA(dna: String) {
     else Left(s"invalid nucleotide '$char'")
 }
 
-object DNA {
+object DNAExample {
   type Nucleotide = Char
   type NucleotideCounts = Map[Nucleotide,Int]
   type OrError[T] = Either[String, T]

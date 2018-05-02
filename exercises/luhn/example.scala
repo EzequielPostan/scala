@@ -1,4 +1,4 @@
-object Luhn {
+object LuhnExample {
 
   def valid(numberStr: String): Boolean = {
     val s = numberStr.replace(" ", "")

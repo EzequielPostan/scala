@@ -1,4 +1,4 @@
-object Pangrams {
+object PangramsExample {
   private val alphaLength = 26
 
   def isPangram(input: String): Boolean = {

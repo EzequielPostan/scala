@@ -1,4 +1,4 @@
-object Isogram {
+object IsogramExample {
   def isIsogram(s: String): Boolean =
     !s.filter(_.isLetter)
       .map(_.toLower)

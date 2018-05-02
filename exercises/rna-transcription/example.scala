@@ -1,4 +1,4 @@
-object RnaTranscription {
+object RnaTranscriptionExample {
   private type Strand = String
   private type Nucleotide = Char
 

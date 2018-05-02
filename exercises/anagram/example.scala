@@ -1,4 +1,4 @@
-object Anagram {
+object AnagramExample {
   def anagrams(word: String, anagrams: Seq[String]) =
     anagrams.filter(w => doesMatch(word, w)).filterNot(w => isIdentical(word, w))
 

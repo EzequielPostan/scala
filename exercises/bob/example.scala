@@ -1,4 +1,4 @@
-object Bob {
+object BobExample {
   def response(statement: String): String = statement match {
     case ShoutingQuestion() => "Calm down, I know what I'm doing!"
     case Shouting() => "Whoa, chill out!"

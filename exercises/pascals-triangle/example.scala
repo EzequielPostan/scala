@@ -1,4 +1,4 @@
-object PascalsTriangle {
+object PascalsTriangleExample {
   def rows(n: Int): List[List[Int]] =
     (for (row <- 1 to n) yield triRow(row)).toList
 

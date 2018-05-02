@@ -1,4 +1,4 @@
-case class WordCount(phrase: String) {
+case class WordCountExample(phrase: String) {
   def countWords = "\\w+('\\w+)*".r
     .findAllIn(phrase)
     .toSeq

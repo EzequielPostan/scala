@@ -1,5 +1,5 @@
 import java.time.LocalDate
-import LensPerson._
+import LensPersonExample._
 
 trait ToBeImplemented {
 
@@ -15,7 +15,7 @@ trait ToBeImplemented {
   val renameStreets: (String => String) => Person => Person
 }
 
-object LensPerson extends ToBeImplemented with MonocleSolution /* with ScalazSolution */ {
+object LensPersonExample extends ToBeImplemented with MonocleSolution /* with ScalazSolution */ {
 
   case class Person(_name: Name, _born: Born, _address: Address)
 

@@ -1,5 +1,5 @@
 
-case class PalindromeProducts(minFactor: Int, maxFactor: Int) {
+case class PalindromeProductsExample(minFactor: Int, maxFactor: Int) {
 
   lazy val (smallest: Option[(Int, Set[(Int, Int)])],
             largest: Option[(Int, Set[(Int, Int)])]) = {

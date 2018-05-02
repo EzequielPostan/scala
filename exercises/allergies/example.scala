@@ -1,17 +1,17 @@
-import Allergen.Allergen
+import AllergenExample.AllergenExample
 
-object Allergies {
-  private lazy val allergenList = Allergen.values
+object AllergiesExample {
+  private lazy val allergenList = AllergenExample.values
 
-  def allergicTo(allergen: Allergen, score: Int): Boolean =
+  def allergicTo(allergen: AllergenExample, score: Int): Boolean =
     (allergen.id & score) != 0
 
-  def list(score: Int): List[Allergen] =
+  def list(score: Int): List[AllergenExample] =
     allergenList.filter(a => allergicTo(a, score)).toList
 }
 
-object Allergen extends Enumeration {
-  type Allergen = Value
+object AllergenExample extends Enumeration {
+  type AllergenExample = Value
 
   val Eggs = Value(1, "Eggs")
   val Peanuts = Value(2, "Peanuts")

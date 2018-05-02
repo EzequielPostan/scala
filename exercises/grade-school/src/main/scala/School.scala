@@ -1,11 +1,13 @@
-class School {
-  type DB = Map[Int, Seq[String]]
+import scala.collection.immutable.SortedMap
 
-  def add(name: String, g: Int) = ???
+case class School(db: SortedMap[Int, Seq[String]] = SortedMap()) {
+  type DB = SortedMap[Int, Seq[String]]
 
-  def db: DB = ???
+  def add(name: String, g: Int): School =
+    School(db.updated(g, grade(g) :+ name))
 
-  def grade(g: Int): Seq[String] = ???
+  def grade(g: Int): Seq[String] =
+    db.getOrElse(g, Seq())
 
-  def sorted: DB = ???
+  def sorted: DB = db mapValues (_.sorted)
 }

@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object BinarySearch {
+object BinarySearchExample {
   def find[T](seq: Seq[T], value: T)(implicit ord: T => Ordered[T]): Option[Int]
     = searchInternal(seq, value, 0, seq.size - 1)
 

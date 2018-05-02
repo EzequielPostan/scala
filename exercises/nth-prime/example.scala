@@ -1,4 +1,4 @@
-object NthPrime {
+object NthPrimeExample {
   // The stream will cache calculated primes. This is nice for performance,
   // but not so nice for memory utilization.
   private lazy val primes: Stream[BigInt] =

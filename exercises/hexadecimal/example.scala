@@ -1,4 +1,4 @@
-object Hexadecimal {
+object HexadecimalExample {
   private val hexChars  = 'a' to 'f'
 
   def hexToInt(s: String): Int =

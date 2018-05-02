@@ -1,4 +1,4 @@
-object Raindrops {
+object RaindropsExample {
   private val sounds = List((3, "Pling"), (5, "Plang"), (7, "Plong"))
 
   def convert(n: Int): String =
