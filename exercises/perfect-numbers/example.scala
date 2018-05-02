@@ -1,7 +1,7 @@
-import NumberType.NumberType
+import NumberTypeExample.NumberTypeExample
 
-object PerfectNumbers {
-  def classify(n: Int): Either[String, NumberType] = {
+object PerfectNumbersExample {
+  def classify(n: Int): Either[String, NumberTypeExample] = {
     if (n <= 0)
       Left("Classification is only possible for natural numbers.")
     else {
@@ -10,17 +10,17 @@ object PerfectNumbers {
         .foldLeft(0)((acc, i) => if (n % i == 0) acc + i else acc)
 
       if (sumOfFactors < n)
-        Right(NumberType.Deficient)
+        Right(NumberTypeExample.Deficient)
       else if (sumOfFactors > n)
-        Right(NumberType.Abundant)
+        Right(NumberTypeExample.Abundant)
       else
-        Right(NumberType.Perfect)
+        Right(NumberTypeExample.Perfect)
     }
   }
 }
 
-object NumberType extends Enumeration {
-  type NumberType = Value
+object NumberTypeExample extends Enumeration {
+  type NumberTypeExample = Value
 
   val Perfect = Value("Perfect")
   val Abundant = Value("Abundant")
